@@ -1365,33 +1365,31 @@ class MudkipMode(GameMode):
         else:
             var.TOTEM_CHANCES["pestilence"] = (5, 1, 0)
 
-@game_mode("wildchild", minp=6, maxp=22, likelihood=1)
-class WildChildMode(GameMode):
+@game_mode("wild", minp=6, maxp=24, likelihood=4)
+class WildMode(GameMode):
     """Don't anger the wild child!"""
     def __init__(self, arg=""):
         super().__init__(arg)
 
-        self.ROLE_INDEX =         (  6  ,  7  ,  8  ,  9  , 11  , 13  , 15  , 17  , 20  )
+        self.ROLE_INDEX =         (  6  ,  8  ,  9  , 10  , 12  , 14  , 16  , 18  , 22  )
         self.ROLE_GUIDE = reset_roles(self.ROLE_INDEX)
         self.ROLE_GUIDE.update({# village roles
               "seer"            : (  1  ,  1  ,  1  ,  1  ,  1  ,  1  ,  1  ,  1  ,  1  ),
               "hunter"          : (  0  ,  1  ,  1  ,  1  ,  1  ,  1  ,  1  ,  1  ,  1  ),
-              "investigator"    : (  0  ,  0  ,  1  ,  1  ,  1  ,  1  ,  1  ,  1  ,  1  ),
+              "investigator"    : (  0  ,  0  ,  1  ,  1  ,  1  ,  1  ,  1  ,  1  ,  2  ),
               "harlot"          : (  0  ,  0  ,  0  ,  0  ,  1  ,  1  ,  1  ,  1  ,  1  ),
-              "shaman"          : (  0  ,  0  ,  0  ,  0  ,  0  ,  1  ,  1  ,  1  ,  2  ),
-              "priest"          : (  0  ,  0  ,  0  ,  0  ,  0  ,  0  ,  0  ,  1  ,  1  ),
-              "village drunk"   : (  1  ,  0  ,  0  ,  0  ,  0  ,  1  ,  1  ,  1  ,  2  ),
-              # wolf roles
-              "wolf"            : (  1  ,  1  ,  1  ,  1  ,  1  ,  2  ,  2  ,  2  ,  2  ),
-              "wolf cub"        : (  0  ,  0  ,  0  ,  0  ,  1  ,  1  ,  1  ,  1  ,  1  ),
-              "traitor"         : (  0  ,  1  ,  1  ,  1  ,  1  ,  1  ,  1  ,  1  ,  1  ),
-              # neutral roles
-              "wild child"      : (  1  ,  1  ,  1  ,  1  ,  1  ,  1  ,  2  ,  2  ,  2  ),
-              "crazed shaman"   : (  0  ,  0  ,  0  ,  1  ,  1  ,  1  ,  1  ,  1  ,  1  ),
+              "shaman"          : (  0  ,  0  ,  0  ,  0  ,  0  ,  1  ,  1  ,  2  ,  2  ),
+              "village drunk"   : (  1  ,  1  ,  1  ,  1  ,  1  ,  1  ,  1  ,  1  ,  1  ),
               "vengeful ghost"  : (  0  ,  0  ,  0  ,  0  ,  1  ,  1  ,  1  ,  1  ,  1  ),
+              # wolf roles
+              "wolf"            : (  1  ,  1  ,  1  ,  1  ,  1  ,  1  ,  1  ,  2  ,  3  ),
+              "wolf cub"        : (  0  ,  0  ,  0  ,  0  ,  1  ,  1  ,  1  ,  1  ,  1  ),
+              # neutral roles
+              "wild child"      : (  1  ,  1  ,  1  ,  1  ,  1  ,  2  ,  2  ,  2  ,  2  ),
+              "crazed shaman"   : (  0  ,  0  ,  0  ,  1  ,  1  ,  1  ,  1  ,  1  ,  1  ),
               # templates
               "cursed villager" : (  0  ,  1  ,  1  ,  1  ,  1  ,  2  ,  2  ,  3  ,  3  ),
-              "gunner"          : (  0  ,  0  ,  0  ,  0  ,  0  ,  0  ,  1  ,  1  ,  2  ),
+              "assassin"        : (  0  ,  0  ,  0  ,  0  ,  0  ,  0  ,  1  ,  1  ,  2  ),
               "mayor"           : (  0  ,  0  ,  0  ,  0  ,  0  ,  0  ,  0  ,  1  ,  1  ),
               })
                                               #    SHAMAN   , CRAZED SHAMAN , WOLF SHAMAN
@@ -1405,7 +1403,7 @@ class WildChildMode(GameMode):
                                  "influence": (      1      ,       1       ,      0      ),
                                 "narcolepsy": (      0      ,       1       ,      0      ),
                                   "exchange": (      0      ,       1       ,      0      ),
-                               "lycanthropy": (      1      ,       1       ,      0      ),
+                               "lycanthropy": (      0      ,       1       ,      0      ),
                                       "luck": (      1      ,       1       ,      0      ),
                                 "pestilence": (      2      ,       1       ,      0      ),
                                "retribution": (      0      ,       1       ,      0      ),
